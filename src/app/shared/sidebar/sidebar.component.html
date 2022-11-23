@@ -3,8 +3,12 @@
     <hr class="text-light" />
     <nav>
         <ul class="list-group px-3">
-            <li class="list-group-item list-group-item-action" role="button">
-                Dashboard
+            <li
+                class="list-group-item list-group-item-action"
+                role="button"
+                *ngFor="let historialItem of historial"
+            >
+                {{ historialItem }}
             </li>
         </ul>
     </nav>
