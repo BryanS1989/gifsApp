@@ -8,7 +8,8 @@
                 role="button"
                 *ngFor="let historialItem of historial"
             >
-                {{ historialItem }}
+                <!-- titlecase : pipe de Angular -->
+                {{ historialItem | titlecase }}
             </li>
         </ul>
     </nav>
