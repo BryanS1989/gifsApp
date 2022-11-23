@@ -18,6 +18,12 @@ export class BusquedaComponent {
     }
     buscar() {
         const valor = this.txtBuscar.nativeElement.value;
+
+        // Do not search empty strings
+        if (valor.trim().length === 0) {
+            return;
+        }
+
         console.log("[GifsModule] [BusquedaComponent] [buscar()] Buscar: ", valor);
 
         this.txtBuscar.nativeElement.value = '';
