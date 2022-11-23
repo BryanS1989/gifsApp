@@ -18,8 +18,17 @@ export class GifsService {
         return [...this._historial];
     }
 
-    buscarGifs(query: string) {
-        this._historial.unshift(query);
+    buscarGifs(query: string = '') {
+
+        query = query.trim().toLocaleLowerCase();
+
+        // Do not allow duplicates
+        if (!this._historial.includes(query)) {
+            this._historial.unshift(query);
+
+            // Do not allow to storage more than 10 items
+            this._historial = this._historial.splice(0, 10);
+        }
 
         console.log('[GifsService] [buscarGifs()] Current historial: ', this._historial);
     }
