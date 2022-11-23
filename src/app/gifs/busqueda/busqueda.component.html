@@ -1,5 +1,13 @@
 <nav>
     <h2>Buscar</h2>
-    <input type="text" class="form-control" placeholder="Buscar Gifs..." />
+
+    <!-- #txtBuscar : Referencia Local -->
+    <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar Gifs..."
+        (keyup.enter)="buscar()"
+        #txtBuscar
+    />
     <hr />
 </nav>
