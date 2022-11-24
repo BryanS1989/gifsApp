@@ -1,10 +1,18 @@
 <article>
     <section>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            blanditiis odio ipsa quas, quis mollitia? Eveniet aspernatur esse
-            cupiditate eligendi sint animi ratione? Voluptatum illum fugiat vero
-            pariatur, atque in!
-        </p>
+        <ul class="d-flex flex-row flex-wrap">
+            <li *ngFor="let gif of resultados" class="card m-2">
+                <img
+                    [src]="gif.images.downsized_medium.url"
+                    [alt]="gif.title"
+                    class="card-img-top"
+                />
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ gif.title }}
+                    </p>
+                </div>
+            </li>
+        </ul>
     </section>
 </article>
