@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { Gif, SearchGifsResponse } from '../Interface/gifs.interface';
 
 @Injectable({
     providedIn: 'root' /*   ProvideIn:'root' indica que...
@@ -13,7 +14,7 @@ export class GifsService {
     private apiKey: string = 'a7Qs9SjSPrDATTFxDfrNGjKmoG9VA6Zg';
     private _historial: string[] = [];
 
-    public resultados: any[] = [];
+    public resultados: Gif[] = [];
 
     get historial() {
         // Con ... (operador spread) rompemos la referencia a _historial, de esta manera no modificarán
@@ -42,8 +43,8 @@ export class GifsService {
         console.log('[GifsService] [buscarGifs()] Current historial: ', this._historial);
 
         // Obtener los gifs usando HttpClientModule
-        this.http.get(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=10&api_key=a7Qs9SjSPrDATTFxDfrNGjKmoG9VA6Zg`)
-            .subscribe((response: any) => {
+        this.http.get<SearchGifsResponse>(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=10&api_key=a7Qs9SjSPrDATTFxDfrNGjKmoG9VA6Zg`)
+            .subscribe((response) => {
                 console.log(`[GifsService][buscarGifs()] Enpoint SEARCH "${query}" response: `, response.data);
                 this.resultados = response.data;
             });
