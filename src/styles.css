@@ -1,17 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 
 aside,
 main {
-    height: 100vh;
+    height: 100%;
     min-height: 100vh;
 }
 
 main {
-    min-width: 70vw;
+    min-width: 60vw;
 }
 
 aside {
