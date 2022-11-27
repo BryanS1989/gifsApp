@@ -26,7 +26,14 @@ export class GifsService {
     // Obtener los gifs usando HttpClientModule
     constructor(
         private http: HttpClient
-    ) { }
+    ) {
+        /*
+        if (localStorage.getItem('historial')) {
+            this._historial = JSON.parse(localStorage.getItem('historial')!);
+        }
+        */
+        this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+    }
 
     buscarGifs(query: string = '') {
 
@@ -38,6 +45,8 @@ export class GifsService {
 
             // Do not allow to storage more than 10 items
             this._historial = this._historial.splice(0, 10);
+
+            localStorage.setItem('historial', JSON.stringify(this._historial));
         }
 
         console.log('[GifsService] [buscarGifs()] Current historial: ', this._historial);
