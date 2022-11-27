@@ -33,6 +33,9 @@ export class GifsService {
         }
         */
         this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+
+        // Get last search results
+        this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
     }
 
     buscarGifs(query: string = '') {
@@ -56,6 +59,9 @@ export class GifsService {
             .subscribe((response) => {
                 console.log(`[GifsService][buscarGifs()] Enpoint SEARCH "${query}" response: `, response.data);
                 this.resultados = response.data;
+
+                // Save las search at localStorage
+                localStorage.setItem('resultados', JSON.stringify(this.resultados));
             });
 
         /*
