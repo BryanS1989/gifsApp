@@ -1,7 +1,10 @@
 <article>
     <section>
         <ul class="d-flex flex-row flex-wrap">
-            <li *ngFor="let gif of resultados" class="card m-2">
+            <li
+                *ngFor="let gif of resultados"
+                class="card m-2 animate__animated animate__backInUp animate__fast"
+            >
                 <img
                     [src]="gif.images.downsized_medium.url"
                     [alt]="gif.title"
