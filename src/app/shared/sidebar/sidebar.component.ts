@@ -16,4 +16,9 @@ export class SidebarComponent {
         private gifsService: GifsService
     ) { }
 
+    buscar(termino: string) {
+        console.log("[SharedModule] [SidebarComponent] [buscar()] Término: ", termino);
+
+        this.gifsService.buscarGifs(termino);
+    }
 }

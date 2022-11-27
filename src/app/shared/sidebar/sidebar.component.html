@@ -7,6 +7,7 @@
                 class="list-group-item list-group-item-action"
                 role="button"
                 *ngFor="let historialItem of historial"
+                (click)="buscar(historialItem)"
             >
                 <!-- titlecase : pipe de Angular -->
                 {{ historialItem | titlecase }}
